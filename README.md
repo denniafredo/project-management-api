@@ -65,4 +65,4 @@ The API is deployed to a Vercel server.
 The full API documentation can be found in the documentation/interaktiv.postman_collection.json file of the repository.
 
 # Link to Deployed API
-https://my-awesome-api.herokuapp.com/a
+https://project-management-api-lemon.vercel.app
