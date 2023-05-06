@@ -59,10 +59,10 @@ The API documentation is available in the documentation folder of the repository
 Import and then Open the view documentation on ... after collections
 
 # Deployment
-The API is deployed to a Heroku server.
+The API is deployed to a Vercel server.
 
 # API Documentation
 The full API documentation can be found in the documentation/interaktiv.postman_collection.json file of the repository.
 
 # Link to Deployed API
-https://my-awesome-api.herokuapp.com/
+https://my-awesome-api.herokuapp.com/.
