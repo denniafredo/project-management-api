@@ -1,0 +1,594 @@
+{
+	"info": {
+		"_postman_id": "a226bba5-a199-48c9-95f1-979cf6f57cff",
+		"name": "interaktiv",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3192405"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "users (admin only)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin@admin.com\",\r\n    \"password\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						},
+						"description": "| **URL** | **/users** |\n| --- | --- |\n| Method | GET |\n\n- Request Body :\n    \n\n``` json\n{\n    \"email\":\"admin@admin.com\",\n    \"password\":\"admin\"\n}\n\n```\n\n- Success Response :\n    - Status Code : 200 OK\n    - Response Body :\n\n``` json\n[\n    {\n        \"name\": \"test\",\n        \"email\": \"test@test.com\"\n    },\n    {\n        \"name\": \"user\",\n        \"email\": \"user@user.com\"\n    },\n    {\n        \"name\": \"user\",\n        \"email\": \"user1@user.com\"\n    }\n]\n\n```\n\n- Error Response :\n    - Status Code : 404 NOT FOUND\n\n``` json\n{\n    \"message\": \"User is empty\"\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "user by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/645603d7cce517ec731173a4",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"645603d7cce517ec731173a4"
+							]
+						},
+						"description": "| **URL** | **/users/:id** |\n| --- | --- |\n| Method | GET |\n\n- Success Response :\n    - Status Code : 200 OK\n    - Response Body :\n\n``` json\n[\n    {\n        \"name\": \"test\",\n        \"email\": \"test@test.com\"\n    }\n]\n\n```\n\n- Error Response :\n    - Status Code : 404 NOT FOUND\n\n``` json\n{\n    \"message\": \"User not Found\"\n}\n\n```\n\n- Error Response :\n    - Status Code : 400 BAD REQUEST\n\n``` json\n{\n    \"message\": \"Invalid user ID\"\n}\n\n```\n\n- Error Response\n    - Status Code : 403 Forbidden\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Access Denied\"\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"123q\",\r\n    \"email\":\"test@test.com\",\r\n    \"password\":\"test123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/645603d7cce517ec731173a4",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"645603d7cce517ec731173a4"
+							]
+						},
+						"description": "| **URL** | **/users/:id** |\n| --- | --- |\n| Method | PUT |\n\n- Success Response :\n    - Status Code : 200 OK\n    - Response Body :\n\n``` json\n[\n    {\n        \"name\": \"test\",\n        \"email\": \"test@test.com\"\n    }\n]\n\n```\n\n- Error Response :\n    - Status Code : 404 NOT FOUND\n\n``` json\n{\n    \"message\": \"User not Found\"\n}\n\n```\n\n- Error Response :\n    - Status Code : 400 BAD REQUEST\n\n``` json\n{\n    \"message\": \"Invalid user ID\"\n}\n\n```\n\n- Error Response :\n    - Status Code : 400 CONFLICT\n\n``` json\n{\n    \"message\": \"Email already exists\"\n}\n\n```\n\n- Error Response\n    - Status Code : 422 Unprocessable Content\n    - Response Body :\n\n``` json\n{\n    \"message\" : [{errorObject}]\n}\n\n```\n\n- Error Response\n    - Status Code : 403 Forbidden\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Access Denied\"\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "delete user by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/users/645556022bc2c92cfef38b38",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"645556022bc2c92cfef38b38"
+							]
+						},
+						"description": "| **URL** | **/users/:id** |\n| --- | --- |\n| Method | DELETE |\n\n- Success Response :\n    - Status Code : 200 OK\n    - Response Body :\n\n``` json\n{\n   \"message\": \"User deleted\",\n}\n\n```\n\n- Error Response :\n    - Status Code : 404 NOT FOUND\n\n``` json\n{\n    \"message\": \"User not Found\"\n}\n\n```\n\n- Error Response\n    - Status Code : 403 Forbidden\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Access Denied\"\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"user\",\r\n    \"email\":\"user@user.com\",\r\n    \"password\":\"user123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						},
+						"description": "| **URL** | **/users** |\n| --- | --- |\n| Method | POST |\n\n- Success Response\n    - Status Code : 201 CREATED\n    - Response Body :\n\n``` json\n{\n    \"name\": \"test\",\n    \"email\": \"test@test2.com\"\n}\n\n```\n\n- Error Response\n    - Status Code : 422 Unprocessable Content\n    - Response Body :\n\n``` json\n{\n    \"message\" : [{errorObject}]\n}\n\n```\n\n- Error Response\n    - Status Code : 400 Conflict\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Email already exists\"\n}\n\n```"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "projects owned",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"projects"
+							]
+						},
+						"description": "| **URL** | **/projects** |\n| --- | --- |\n| Method | GET |\n\n- Success Response :\n    - Status Code : 200 OK\n    - Response Body :\n\n``` json\n[\n    {\n        \"_id\": \"64560c79aa98c1cfc48462ff\",\n        \"name\": \"Project 1\",\n        \"description\": \"This is a new project\",\n        \"due_date\": \"2023-12-31T00:00:00.000Z\",\n        \"user_id\": \"645603d7cce517ec731173a4\",\n        \"tasks\": [\n            \"6456116b5e0437d0e300b52e\",\n            \"64562e285951e53b41df9cdc\"\n        ],\n        \"__v\": 0\n    }\n]\n\n```\n\n- Error Response :\n    - Status Code : 404 NOT FOUND\n\n``` json\n{\n    \"message\": \"Project is Empty\"\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "project by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/projects/6455f6f447cec31e5e16e0b5",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"projects",
+								"6455f6f447cec31e5e16e0b5"
+							]
+						},
+						"description": "| **URL** | **/projects/:id** |\n| --- | --- |\n| Method | GET |\n\n- Success Response :\n    - Status Code : 200 OK\n    - Response Body :\n\n``` json\n{\n    \"_id\": \"64560c79aa98c1cfc48462ff\",\n    \"name\": \"Project 1\",\n    \"description\": \"This is a new project\",\n    \"due_date\": \"2023-12-31T00:00:00.000Z\",\n    \"user_id\": \"645603d7cce517ec731173a4\",\n    \"tasks\": [\n        \"6456116b5e0437d0e300b52e\",\n        \"64562e285951e53b41df9cdc\"\n    ],\n    \"__v\": 0\n}\n\n```\n\n- Error Response :\n    - Status Code : 404 NOT FOUND\n\n``` json\n{\n    \"message\": \"Project not Found\"\n}\n\n```\n\n- Error Response :\n    - Status Code : 400 BAD REQUEST\n\n``` json\n{\n    \"message\": \"Invalid project ID\"\n}\n\n```\n\n- Error Response\n    - Status Code : 403 Forbidden\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Access Denied\"\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "update project",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Project 3\",\r\n    \"description\": \"This is a new project\",\r\n    \"due_date\": \"2023-12-31\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/projects/6455f6f847cec31e5e16e0b8",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"projects",
+								"6455f6f847cec31e5e16e0b8"
+							]
+						},
+						"description": "| **URL** | **/projects/:id** |\n| --- | --- |\n| Method | PUT |\n\n- Success Response :\n    - Status Code : 200 OK\n    - Response Body :\n\n``` json\n{\n    \"_id\": \"64560c79aa98c1cfc48462ff\",\n    \"name\": \"Project 1\",\n    \"description\": \"This is a new project\",\n    \"due_date\": \"2023-12-31T00:00:00.000Z\",\n    \"user_id\": \"645603d7cce517ec731173a4\",\n    \"tasks\": [\n        \"6456116b5e0437d0e300b52e\",\n        \"64562e285951e53b41df9cdc\"\n    ],\n    \"__v\": 0\n}\n\n```\n\n- Error Response :\n    - Status Code : 404 NOT FOUND\n\n``` json\n{\n    \"message\": \"Project not Found\"\n}\n\n```\n\n- Error Response :\n    - Status Code : 400 BAD REQUEST\n\n``` json\n{\n    \"message\": \"Invalid project ID\"\n}\n\n```\n\n- Error Response\n    - Status Code : 422 Unprocessable Content\n    - Response Body :\n\n``` json\n{\n    \"message\" : [{errorObject}]\n}\n\n```\n\n- Error Response\n    - Status Code : 403 Forbidden\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Access Denied\"\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "delete project by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/projects/6455f6f447cec31e5e16e0b5",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"projects",
+								"6455f6f447cec31e5e16e0b5"
+							]
+						},
+						"description": "| **URL** | **/projects/:id** |\n| --- | --- |\n| Method | DELETE |\n\n- Success Response :\n    - Status Code : 200 OK\n    - Response Body :\n\n``` json\n{\n    \"message\": \"Project deleted\",\n}\n\n```\n\n- Error Response :\n    - Status Code : 404 NOT FOUND\n\n``` json\n{\n    \"message\": \"Project not Found\"\n}\n\n```\n\n- Error Response :\n    - Status Code : 400 BAD REQUEST\n\n``` json\n{\n    \"message\": \"Invalid project ID\"\n}\n\n```\n\n- Error Response\n    - Status Code : 403 Forbidden\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Access Denied\"\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "create project",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Project 1\",\r\n    \"description\": \"This is a new project\",\r\n    \"due_date\": \"2023-12-31\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"projects"
+							]
+						},
+						"description": "| **URL** | **/projects** |\n| --- | --- |\n| Method | POST |\n\n- Success Response :\n    - Status Code : 201 CREATED\n    - Response Body :\n\n``` json\n{\n    \"_id\": \"64560c79aa98c1cfc48462ff\",\n    \"name\": \"Project 1\",\n    \"description\": \"This is a new project\",\n    \"due_date\": \"2023-12-31T00:00:00.000Z\",\n    \"user_id\": \"645603d7cce517ec731173a4\",\n    \"tasks\": [\n        \"6456116b5e0437d0e300b52e\",\n        \"64562e285951e53b41df9cdc\"\n    ],\n    \"__v\": 0\n}\n\n```\n\n- Error Response\n    - Status Code : 422 Unprocessable Content\n    - Response Body :\n\n``` json\n{\n    \"message\" : [{errorObject}]\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "project by user task",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/projects/tasks/6455f6f447cec31e5e16e0b5",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"projects",
+								"tasks",
+								"6455f6f447cec31e5e16e0b5"
+							]
+						},
+						"description": "| **URL** | **/projects/tasks/:id** |\n| --- | --- |\n| Method | GET |\n\n- Success Response :\n    - Status Code : 200 OK\n    - Response Body :\n\n``` json\n{\n    \"_id\": \"64560c79aa98c1cfc48462ff\",\n    \"name\": \"Project 1\",\n    \"description\": \"This is a new project\",\n    \"due_date\": \"2023-12-31T00:00:00.000Z\",\n    \"user_id\": \"645603d7cce517ec731173a4\",\n    \"tasks\": [\n        \"6456116b5e0437d0e300b52e\",\n        \"64562e285951e53b41df9cdc\"\n    ],\n    \"__v\": 0\n}\n\n```\n\n- Error Response\n    - Status Code : 404 Not Found\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Project is empty\"\n}\n\n```"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "tasks owned",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/tasks",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks"
+							]
+						},
+						"description": "| **URL** | **/tasks** |\n| --- | --- |\n| Method | GET |\n\n- Success Response :\n    - Status Code : 200 OK\n    - Response Body :\n\n``` json\n[\n    {\n        \"_id\": \"64560c79aa98c1cfc48462ff\",\n        \"name\": \"Project 1\",\n        \"description\": \"This is a new project\",\n        \"due_date\": \"2023-12-31T00:00:00.000Z\",\n        \"user_id\": \"645603d7cce517ec731173a4\",\n        \"tasks\": [\n            \"6456116b5e0437d0e300b52e\",\n            \"64562e285951e53b41df9cdc\"\n        ],\n        \"__v\": 0\n    }\n]\n\n```\n\n- Error Response\n    - Status Code : 404 Not Found\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Task is empty\"\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "task by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/tasks/6456116b5e0437d0e300b52e",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks",
+								"6456116b5e0437d0e300b52e"
+							]
+						},
+						"description": "| **URL** | **/tasks/:id** |\n| --- | --- |\n| Method | GET |\n\n- Success Response :\n    - Status Code : 200 OK\n    - Response Body :\n\n``` json\n{\n    \"_id\": \"64560c79aa98c1cfc48462ff\",\n    \"name\": \"Project 1\",\n    \"description\": \"This is a new project\",\n    \"due_date\": \"2023-12-31T00:00:00.000Z\",\n    \"user_id\": \"645603d7cce517ec731173a4\",\n    \"tasks\": [\n        \"6456116b5e0437d0e300b52e\",\n        \"64562e285951e53b41df9cdc\"\n    ],\n    \"__v\": 0\n}\n\n```\n\n- Error Response\n    - Status Code : 404 Not Found\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Task not Found\"\n}\n\n```\n\n- Error Response\n    - Status Code : 400 Bad Request\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Invalid task ID\"\n}\n\n```\n\n- Error Response\n    - Status Code : 403 Forbidden\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Access Denied\"\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "update task",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Task 3\",\r\n    \"description\": \"This is a new task\",\r\n    \"due_date\": \"2023-12-31\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/tasks/645611585e0437d0e300b52a",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks",
+								"645611585e0437d0e300b52a"
+							]
+						},
+						"description": "| **URL** | **/tasks/:id** |\n| --- | --- |\n| Method | PUT |\n\n- Success Response :\n    - Status Code : 200 OK\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Task updated\"\n}\n\n```\n\n- Error Response :\n    - Status Code : 404 NOT FOUND\n\n``` json\n{\n    \"message\": \"Task not Found\"\n}\n\n```\n\n- Error Response :\n    - Status Code : 400 BAD REQUEST\n\n``` json\n{\n    \"message\": \"Invalid tasks ID\"\n}\n\n```\n\n- Error Response\n    - Status Code : 422 Unprocessable Content\n    - Response Body :\n\n``` json\n{\n    \"message\" : [{errorObject}]\n}\n\n```\n\n- Error Response\n    - Status Code : 403 Forbidden\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Access Denied\"\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "delete task",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/tasks/645611585e0437d0e300b52a",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks",
+								"645611585e0437d0e300b52a"
+							]
+						},
+						"description": "| **URL** | **/projects/:id** |\n| --- | --- |\n| Method | DELETE |\n\n- Success Response :\n    - Status Code : 200 OK\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Task deleted\"\n}\n\n```\n\n- Error Response :\n    - Status Code : 404 NOT FOUND\n\n``` json\n{\n    \"message\": \"Task not Found\"\n}\n\n```\n\n- Error Response :\n    - Status Code : 400 BAD REQUEST\n\n``` json\n{\n    \"message\": \"Invalid task ID\"\n}\n\n```\n\n- Error Response\n    - Status Code : 422 Unprocessable Content\n    - Response Body :\n\n``` json\n{\n    \"message\" : [{errorObject}]\n}\n\n```\n\n- Error Response\n    - Status Code : 403 Forbidden\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Access Denied\"\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "create task by owned project",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Task 1\",\r\n    \"description\": \"This is a new task\",\r\n    \"due_date\": \"2023-12-31\",\r\n    \"project_id\": \"64560c79aa98c1cfc48462ff\",\r\n    \"user_id\": \"645603d7cce517ec731173a4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/tasks",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks"
+							]
+						},
+						"description": "| **URL** | **/tasks** |\n| --- | --- |\n| Method | POST |\n\n- Success Response :\n    - Status Code : 201 CREATED\n    - Response Body :\n\n``` json\n{\n    \"_id\": \"6456116b5e0437d0e300b52e\",\n    \"name\": \"Task 1\",\n    \"description\": \"This is a new task\",\n    \"due_date\": \"2023-12-31T00:00:00.000Z\",\n    \"user_id\": \"645603d7cce517ec731173a4\",\n    \"project_id\": \"64560c79aa98c1cfc48462ff\",\n    \"__v\": 0\n}\n\n```\n\n- Error Response\n    - Status Code : 422 Unprocessable Content\n    - Response Body :\n\n``` json\n{\n    \"message\" : [{errorObject}]\n}\n\n```\n\n- Error Response\n    - Status Code : 404 Not Found\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Project not Found\"\n}\n\n```\n- Error Response\n    - Status Code : 404 Not Found\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Usernot Found\"\n}\n\n```\n\n- Error Response\n    - Status Code : 403 Forbidden\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Access denied\"\n}\n\n```"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"test\",\r\n    \"email\":\"test@test2.com\",\r\n    \"password\":\"test123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"register"
+							]
+						},
+						"description": "| **URL** | **/register** |\n| --- | --- |\n| Method | POST |\n\n- Success Response\n    - Status Code : 201 CREATED\n    - Response Body :\n\n``` json\n{\n    \"name\": \"test\",\n    \"email\": \"test@test2.com\"\n}\n\n```\n\n- Error Response\n    - Status Code : 422 Unprocessable Content\n    - Response Body :\n\n``` json\n{\n    \"message\" : [{errorObject}]\n}\n\n```\n\n- Error Response\n    - Status Code : 400 Bad Request\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Email already exists\"\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"test@test.com\",\r\n    \"password\":\"test123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						},
+						"description": "| **URL** | **/login** |\n| --- | --- |\n| Method | POST |\n\n- Success Response\n    - Status Code : 200 OK\n    - Response Body :\n\n``` json\n{\n    \"access_token\": \"Bearer {token}\"\n}\n\n```\n\n- Error Response\n    - Status Code : 422 Unprocessable Content\n    - Response Body :\n\n``` json\n{\n    \"message\" : [{errorObject}]\n}\n\n```\n\n- Error Response\n    - Status Code : 404 Not Found\n    - Response Body :\n\n``` json\n{\n    \"message\" : \"Invalid email / password\"\n}\n\n```"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
