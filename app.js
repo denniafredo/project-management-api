@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const errorHandler = require('./middlewares/errorHandler')
 
-mongoose.connect(process.env.DATABASE_URL);
+mongoose.connect(process.env.MONGODB_URI);
 const database = mongoose.connection;
 
 database.on('error', (error) => {
