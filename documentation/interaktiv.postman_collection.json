@@ -71,11 +71,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/users/645603d7cce517ec731173a4",
+							"raw": "{{base_url}}/users/645603d7cce517ec731173a4",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users",
 								"645603d7cce517ec731173a4"
@@ -106,11 +105,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/users/645603d7cce517ec731173a4",
+							"raw": "{{base_url}}/users/645603d7cce517ec731173a4",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users",
 								"645603d7cce517ec731173a4"
@@ -132,11 +130,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/users/645556022bc2c92cfef38b38",
+							"raw": "{{base_url}}/users/645556022bc2c92cfef38b38",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users",
 								"645556022bc2c92cfef38b38"
@@ -161,11 +158,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/users",
+							"raw": "{{base_url}}/users",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users"
 							]
@@ -203,11 +199,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/projects",
+							"raw": "{{base_url}}/projects",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3000",
 							"path": [
 								"projects"
 							]
@@ -228,11 +223,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/projects/6455f6f447cec31e5e16e0b5",
+							"raw": "{{base_url}}/projects/6455f6f447cec31e5e16e0b5",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3000",
 							"path": [
 								"projects",
 								"6455f6f447cec31e5e16e0b5"
@@ -263,11 +257,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/projects/6455f6f847cec31e5e16e0b8",
+							"raw": "{{base_url}}/projects/6455f6f847cec31e5e16e0b8",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3000",
 							"path": [
 								"projects",
 								"6455f6f847cec31e5e16e0b8"
@@ -289,11 +282,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/projects/6455f6f447cec31e5e16e0b5",
+							"raw": "{{base_url}}/projects/6455f6f447cec31e5e16e0b5",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3000",
 							"path": [
 								"projects",
 								"6455f6f447cec31e5e16e0b5"
@@ -324,11 +316,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/projects",
+							"raw": "{{base_url}}/projects",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3000",
 							"path": [
 								"projects"
 							]
@@ -349,11 +340,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/projects/tasks/6455f6f447cec31e5e16e0b5",
+							"raw": "{{base_url}}/projects/tasks/6455f6f447cec31e5e16e0b5",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3000",
 							"path": [
 								"projects",
 								"tasks",
@@ -393,11 +383,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/tasks",
+							"raw": "{{base_url}}/tasks",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3000",
 							"path": [
 								"tasks"
 							]
@@ -418,11 +407,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/tasks/6456116b5e0437d0e300b52e",
+							"raw": "{{base_url}}/tasks/6456116b5e0437d0e300b52e",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3000",
 							"path": [
 								"tasks",
 								"6456116b5e0437d0e300b52e"
@@ -453,11 +441,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/tasks/645611585e0437d0e300b52a",
+							"raw": "{{base_url}}/tasks/645611585e0437d0e300b52a",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3000",
 							"path": [
 								"tasks",
 								"645611585e0437d0e300b52a"
@@ -479,11 +466,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3000/tasks/645611585e0437d0e300b52a",
+							"raw": "{{base_url}}/tasks/645611585e0437d0e300b52a",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3000",
 							"path": [
 								"tasks",
 								"645611585e0437d0e300b52a"
@@ -514,11 +500,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/tasks",
+							"raw": "{{base_url}}/tasks",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3000",
 							"path": [
 								"tasks"
 							]
@@ -547,11 +532,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/register",
+							"raw": "{{base_url}}/register",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3000",
 							"path": [
 								"register"
 							]
@@ -575,11 +559,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/login",
+							"raw": "{{base_url}}/login",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3000",
 							"path": [
 								"login"
 							]
