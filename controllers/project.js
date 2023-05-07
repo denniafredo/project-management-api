@@ -1,6 +1,7 @@
 const { body, validationResult } = require('express-validator');
 const User = require("../models/user");
 const Project = require("../models/project");
+const Task = require("../models/task");
 const mongoose = require('mongoose');
 
 const saveProject = async (req, res, next) => {
@@ -98,8 +99,15 @@ const deleteProject = async (req, res, next) => {
             await User.updateMany(
                 { projects: id },
                 { $pull: { projects: id } }
-            ); 
-            res.status(200).json({ message: 'Project deleted' });
+            );
+            const tasks = await Task.find({ project_id: id }, '_id');
+            const deletedTasks = await Task.deleteMany({ project_id: id });
+            await User.updateMany(
+                { tasks: { $in: tasks } },
+                { $pull: { tasks: { $in: tasks } } }
+            );
+
+            res.status(200).json({ message: `Project deleted and ${deletedTasks.deletedCount} task deleted` });
         }
     } catch (error) {
         if (error instanceof mongoose.CastError) {
@@ -121,4 +129,4 @@ const getProjectsByTaskId = async (req, res, next) => {
     }
 }
 
-module.exports = { getProjects, getProjectById, saveProject, updateProject, deleteProject, getProjectsByTaskId}
+module.exports = { getProjects, getProjectById, saveProject, updateProject, deleteProject, getProjectsByTaskId }

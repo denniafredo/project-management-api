@@ -18,7 +18,7 @@ const saveTask = async (req, res, next) => {
     try {
         const { name, description, due_date, user_id, project_id } = req.body;
 
-        const project = Project.findOne({ _id: project_id })
+        const project = await Project.findOne({ _id: project_id })
         if (!project) {
             next({ code: 404, msg: 'Project not Found' });
         }
@@ -27,7 +27,7 @@ const saveTask = async (req, res, next) => {
             next({ code: 403, msg: 'Access denied' });
         }
 
-        const user = User.findOne({ _id: user_id })
+        const user = await User.findOne({ _id: user_id })
         if (!user) {
             next({ code: 404, msg: 'User not Found' });
         }
@@ -114,7 +114,7 @@ const deleteTask = async (req, res, next) => {
         if (!deletedTask) {
             next({ code: 404, msg: 'Task not found' });
         } else {
-            await User.updateMany(
+            await User.updateOne(
                 { tasks: id },
                 { $pull: { tasks: id } }
             );
@@ -126,18 +126,6 @@ const deleteTask = async (req, res, next) => {
         }
     } catch (error) {
         next(error);
-    }
-}
-const getTasksByTask = async (req, res, next) => {
-    try {
-        const tasks = await Task.find({ users: req.user._id });
-        if (!tasks.length) {
-            next({ code: 404, msg: 'Task is empty' })
-        } else {
-            res.status(200).json(tasks);
-        }
-    } catch (error) {
-        next(error)
     }
 }
 
